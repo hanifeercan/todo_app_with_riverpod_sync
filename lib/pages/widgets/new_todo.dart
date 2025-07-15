@@ -24,8 +24,8 @@ class _NewTodoState extends ConsumerState<NewTodo> {
       decoration: const InputDecoration(
         labelText: 'What to do?',
       ),
-      onSubmitted: (String description) {
-        if (description.trim().isNotEmpty) {
+      onSubmitted: (String? description) {
+        if (description != null && description.trim().isNotEmpty) {
           ref.read(todoListProvider.notifier).addTodo(description);
           newTodoController.clear();
         }
